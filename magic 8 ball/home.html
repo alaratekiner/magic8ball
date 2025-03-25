@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Magic 8 Ball</title>
+<link rel="stylesheet" href="style.css">
+<h1>Magic 8 Ball</h1>
+<p>Ask any question and click the ball for an answer!</p>
+<!-- <div class="ball" id="ball">🎱</div> -->
+<div class="ball" id="answer"> 8</div>
+<div class="search">
+    <input class="search-input" type="search" placeholder="What is your question?">
+</div>
+<div class="search-button"><button class="button" onclick="shakeBall()">ASK!</button>
+</div>
+<script>
+    // <p id="answer"></p>
+    function shakeBall() {
+        const responses = [
+            "Yes, definitely.", "It is certain.", "Without a doubt.", "Yes, of course!",
+            "Most likely.", "Outlook good.", "Signs point to yes.", "Absolutely!",
+            "Ask again later.", "Better not tell you now.", "Cannot predict now.", "Concentrate and ask again.",
+            "Don't count on it.", "My sources say no.", "Outlook not so good.", "Very doubtful.",
+            "I don't think so.", "In your dreams.", "No way.", "Sorry but no.",
+            "Not likely.", "I hate to break it to you but no.", "Seems plausible.",
+            "Not really.", "Maybe.", "Even I can't answer this question.", "I don't know.",
+            "Seems like it's worth trying.", "Why don't you give it a shot?"
+        ];
+        const colors = [
+            "red", "#FF5733", "blue", "#3498DB", "green", "#2ECC71",
+            "yellow", "#F1C40F", "purple", "#9B59B6", "orange", "#E67E22",
+            "pink", "#FFC0CB", "brown", "#8B4513", "gray", "#808080",
+            "cyan", "#00FFFF", "magenta", "#FF00FF", "lime", "#00FF00",
+            "navy", "#000080", "teal", "#008080", "maroon", "#800000",
+            "olive", "#808000", "gold", "#FFD700", "silver", "#C0C0C0",
+            "indigo", "#4B0082", "violet", "#EE82EE", "turquoise", "#40E0D0",
+            "salmon", "#FA8072", "coral", "#FF7F50", "plum", "#DDA0DD"
+        ];
+        const colorIndex = Math.floor(Math.random(5) * responses.length);
+        const randomIndex = Math.floor(Math.random() * responses.length);
+        document.getElementById("answer").innerText = responses[randomIndex];
+        var doc= document.getElementById("answer"); 
+        doc.style.background=colors[colorIndex];
+        
+        var doc = document.getElementById("answer");
+doc.classList.add("shaked")
+setTimeout(() => {
+    doc.classList.remove("shaked")
+}, 500);
+    }
+</script>
+</body>
+</html>
